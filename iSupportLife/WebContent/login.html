@@ -6,42 +6,8 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/login.css" media="all" />
-<script>
+<script src="js/custom_login_script.js"></script>
 
-		function showSignupForm(){
-        	top.document.getElementById('place_holder').style.display='block';
-        	top.document.getElementById('home').style.display='none';
-        	top.document.getElementById('homeBarContent').style.display='none';
-        	top.document.getElementById('object_content').height="650px";
-        	top.document.getElementById('object_content').data='registration.html';
-        	top.document.getElementById('changeBarTitle').innerHTML='Registration';
-		}
-		
-		function login(){
-		alert(document.getElementById("user_id").value);
-		alert(document.getElementById("password").value);
-			 if (window.XMLHttpRequest)
-			 {// code for IE7+, Firefox, Chrome, Opera, Safari
-			     xmlhttp=new XMLHttpRequest();
-			 }
-			 else
-			 {// code for IE6, IE5
-			 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			 }
-			 xmlhttp.onreadystatechange=function(){
-			 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-					
-					document.getElementById("res").innerHTML=xmlhttp.responseText;
-				}
-			  
-			 }
-			  xmlhttp.open("POST","/iSupportLife/upload",true);
-			  xmlhttp.send("user_id="+document.getElementById("user_id"));		 
-			
-		}
-
-</script>
 </head>
 <body>
 <div class="container">

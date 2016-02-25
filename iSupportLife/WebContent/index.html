@@ -22,6 +22,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
         <title>Main Page</title>
         <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
@@ -75,6 +76,9 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 	</head>
 
 	<body onload="getLocation();">
+<div id="loading">
+  <img id="loading-image" src="img/spinnerLarge.gif" alt="Loading..." />
+</div>
         <header>
             <div class="toggleMobile">
                 <span class="menu1"></span>
@@ -90,13 +94,20 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 					<li><a href="javascript:void(0)">Contact</a></li>
                 </ul>
             </div>
-            <table width="100%" ><tr><td width="70%"><h1>iSupport Life</h1><td><td style="vertical-align: top;padding-top:5%;padding-left:5%">Welcome Guest</td><tr></table>
-            <p>Connecting People to Support Life</p>
+			<table width="100%">
+				<tr>
+					<td width="70%"><h1>iSupport Life</h1>
+					<td>
+					<td style="vertical-align: top; padding-top: 5%; padding-left: 5%">Welcome:&nbsp;
+						<b id="user_name_td">Guest</b></td>
+				<tr>
+			</table>
+		<p>Connecting People to Support Life</p>
             <nav>
             	<h2 class="hidden">Our navigation</h2>
                 <ul>
                     <li><a href="javascript:void(0)" onclick="showHome()">Home</a></li>
-                    <li><a href="#changeBarTitle" onclick="showLogin()">Login</a></li>
+                    <li><a href="javascript:void(0)" onclick="showLogin()">Login</a></li>
                     <li><a href="javascript:void(0)">Community</a></li>
                     <li><a href="javascript:void(0)">About</a></li>
                     <li><a href="javascript:void(0)">Contact</a></li>
@@ -105,7 +116,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         </header>
 
 
-        <section class="container">
+        <section class="container" id="slider_section">
         	<h2 class="hidden">Lorem Ipsum</h2>
             <article id="slider_content1">
                 <h3>Voluntary</h3>
@@ -343,7 +354,6 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         </section>
 </div>
 
-
         <footer>
         	<h2 class="hidden">Our footer</h2>
             <section id="copyright">
@@ -390,5 +400,10 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 <!--	<script src="http://www.google.com/jsapi?key=AIzaSyC3tWXAypcTlfZ9egK6G6xkYt_PkQe52PM"></script>-->
 
 <script src="js/gmap_script.js"></script>
+<script type="text/javascript">
+     $(window).load(function() {
+     $('#loading').hide();
+  });
+</script>
 
 </html>
