@@ -18,8 +18,8 @@
 		}
 		
 		function login(){
-			alert(form.elements.username.text);
-			alert(form.elements.password.text);
+		alert(document.getElementById("user_id").value);
+		alert(document.getElementById("password").value);
 			 if (window.XMLHttpRequest)
 			 {// code for IE7+, Firefox, Chrome, Opera, Safari
 			     xmlhttp=new XMLHttpRequest();
@@ -37,7 +37,7 @@
 			  
 			 }
 			  xmlhttp.open("POST","/iSupportLife/upload",true);
-			  xmlhttp.send("user_name="+document.getElementById("username"));		 
+			  xmlhttp.send("user_id="+document.getElementById("user_id"));		 
 			
 		}
 
@@ -49,7 +49,7 @@
 		<form action="">
 			<h1>Login Form</h1>
 			<div>
-				<input type="text" placeholder="Username" required="" id="username" />
+				<input type="text" placeholder="Username" required="" id="user_id" />
 			</div>
 			<div>
 				<input type="password" placeholder="Password" required="" id="password" />

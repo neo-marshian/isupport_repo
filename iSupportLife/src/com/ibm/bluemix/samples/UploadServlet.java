@@ -75,41 +75,42 @@ public class UploadServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Upload Servlet");
-
+		System.out.println("----Upload Servlet doPost-----");
+		Connection conn = null;
+		Statement stmt =  null;
+		String sqlStatement = null;
+		String tableName = "USER14281.MYTABLE";
+		PrintWriter pw = response.getWriter();
 		try {
-			List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-			for (FileItem item : items) {
-				if (!item.isFormField()) {
-					// item is the file (and not a field), read it in and add to
-					// List
-					Scanner scanner = new Scanner(new InputStreamReader(item.getInputStream(), "UTF-8"));
-					List<String> lines = new ArrayList<String>();
-					while (scanner.hasNextLine()) {
-						String line = scanner.nextLine().trim();
-						if (line.length() > 0) {
-							lines.add(line);
-						}
-					}
-					scanner.close();
+			conn = getConnection();		
+			stmt =  conn.createStatement();
+		// Execute some SQL statements on the table: Insert, Select and Delete
 
-					// add lines to database
-					int rows = db.addPosts(lines);
-					String msg = "Added " + rows + " rows.";
-					request.setAttribute("msg", msg);
-					break;
-				}
+			sqlStatement = "SELECT * FROM " + tableName + " WHERE USER_ID='"+request.getParameter("user_id")+"'";
+			ResultSet rs = stmt.executeQuery(sqlStatement);
+			System.out.println("Query-->"+sqlStatement);
+			// Process the result set
+			String userName;
+			if (rs.next()) {
+				userName = rs.getString(2);
+				pw.println("<b style='color:green'>Found User: " + userName+"</b>");
+			} else{
+				pw.println("<b style='color:red'>User ID or Password not valid!</b>");
 			}
+			// Close the ResultSet
+			rs.close();
 
-			request.setAttribute("posts", db.getResults());
+		} catch (SQLException e) {
+			pw.println("Error executing:" + sqlStatement);
+			pw.println("SQL Exception: " + e);
 		} catch (Exception e) {
-			request.setAttribute("msg", e.getMessage());
-			e.printStackTrace(System.err);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		response.setContentType("text/html");
 		response.setStatus(200);
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		//request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -152,8 +153,6 @@ public class UploadServlet extends HttpServlet {
 			sqlStatement = "DELETE FROM " + tableName + " WHERE USER_NAME = \'John Smith\'";
 			stmt.executeUpdate(sqlStatement);
 						
-			pw.print(stdkey);
-			pw.close();
 		} catch (SQLException e) {
 			pw.println("Error executing:" + sqlStatement);
 			pw.println("SQL Exception: " + e);
@@ -173,7 +172,6 @@ public class UploadServlet extends HttpServlet {
 			// We don't know exactly what the service is called, but it will contain "sql"
 			for (Object key : vcap.keySet()) {
 				String keyStr = (String) key;
-				System.out.println("Key--------->"+keyStr);
 				if (keyStr.toLowerCase().contains("sql")) {
 					service = (JSONObject) ((JSONArray) vcap.get(keyStr)).get(0);
 					break;
