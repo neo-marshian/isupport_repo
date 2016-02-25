@@ -1,0 +1,394 @@
+<!--
+This HTML5 website is part of a HTML5 / CSS3 tutorial created by Christoph Anastasiades (http://www.lingulo.com)
+Feel free to use it for your personal or commercial projects and/or change it in any way you like.
+
+USE THIS TEMPLATE ON YOUR OWN RISK AND PLEASE BE AWARE THAT I DO NOT GUARANTEE THE CORRECTNESS OF THE FILES
+DOWNLOADED ON http://www.lingulo.com AND WILL NOT BE RESPONSIBLE FOR ANY LOSS OR DAMAGE CAUSED THROUGH THE USE OF THESE FILES.
+
+I would be happy if you put a link to http://www.lingulo.com somewhere on your website to support my work. However this is not obligatory.
+
+Please note that you may not distribute the files downloaded from Lingulo.com or offer them for download.
+
+
+What you need to do to make this page work:
+
+- Find images for the jQuery Slider and for all the icons (the icons used in the tutorial are from http://www.iconarchive.com/show/icons8-metro-style-icons-by-visualpharm.1.html)
+
+To minimize the amount of HTTP requests combine all CSS files into one single file.
+
+!-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main Page</title>
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        <link href="lightbox/css/lightbox.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+
+        <script src="js/vendor/modernizr.min.js"></script>
+        <script src="js/vendor/respond.min.js"></script>
+
+        <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js\/vendor\/1.7.2.jquery.min.js"><\/script>')</script>
+
+        <script src="lightbox/js/lightbox.js"></script>
+        <script src="js/vendor/prefixfree.min.js"></script>
+        <script src="js/vendor/jquery.slides.min.js"></script>
+        <script src="js/script.js"></script>
+
+        <script src="js/custom_script.js"></script>
+
+        <!--[if lt IE 9]>
+            <style>
+                header
+                {
+                    margin: 0 auto 20px auto;
+                }
+                #four_columns .img-item figure span.thumb-screen
+                {
+                    display:none;
+                }
+            </style>
+        <![endif]-->
+
+
+        <style>
+
+        #img1, #img2, #img3{
+			height:64px;
+			width:64px;
+		}
+
+		#img4, #img5, #img6{
+			height:115px;
+			width:200px;
+		}
+        </style>
+	</head>
+
+	<body onload="getLocation();">
+        <header>
+            <div class="toggleMobile">
+                <span class="menu1"></span>
+                <span class="menu2"></span>
+                <span class="menu3"></span>
+            </div>
+            <div id="mobileMenu">
+                <ul>
+					<li><a href="javascript:void(0)" onclick="showHome()">Home</a></li>
+					<li><a href="javascript:void(0)" onclick="showLogin();">Login</a></li>
+					<li><a href="javascript:void(0)">Community</a></li>
+					<li><a href="javascript:void(0)">About</a></li>
+					<li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </div>
+            <table width="100%" ><tr><td width="70%"><h1>iSupport Life</h1><td><td style="vertical-align: top;padding-top:5%;padding-left:5%">Welcome Guest</td><tr></table>
+            <p>Connecting People to Support Life</p>
+            <nav>
+            	<h2 class="hidden">Our navigation</h2>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="showHome()">Home</a></li>
+                    <li><a href="#changeBarTitle" onclick="showLogin()">Login</a></li>
+                    <li><a href="javascript:void(0)">Community</a></li>
+                    <li><a href="javascript:void(0)">About</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <section class="container">
+        	<h2 class="hidden">Lorem Ipsum</h2>
+            <article id="slider_content1">
+                <h3>Voluntary</h3>
+                <p>A Completely voluntary based application where people  may volunteer themselves for emergency medical help, blood donation  and organ donation. <a href="javascript:void(0)" class="responsive_button">Learn more...</a></p>
+                <a class="button" href="javascript:void(0)">Learn more</a>
+            </article>
+            <article id="slider_content2">
+                <h3>Collaboration & Cooperation</h3>
+                <p>Collaboration and cooperation in regard to exchanging information and help on life support. You can seek help and also extend your help here. <a href="javascript:void(0)" class="responsive_button">Learn more...</a></p>
+                <a class="button" href="javascript:void(0)">Learn more</a>
+            </article>
+            <article id="slider_content3">
+                <h3>Philanthropic</h3>
+                <p>This philanthropic platform is to support human in need, in their emergency and people who are struggling for their lives. <a href="javascript:void(0)" class="responsive_button">Learn more...</a></p>
+                <a class="button" href="javascript:void(0)">Learn more</a>
+            </article>
+            <div id="slides">
+                <img src="images/life_s1.jpg" alt="Life Support">
+                <img src="images/life_s2.jpg" alt="Some alt text">
+                <img src="images/life_support3.png" alt="Some alt text">
+            </div>
+        </section>
+        <!-- BAR CONTENT -->
+	 <section id="spacer">
+			<h2 class="hidden">Dolor sit amet</h2>
+			<p id="changeBarTitle"></p>
+			<div id="homeBarContent">
+				<p>Welcome to iSupport Life, are you ready to join? <a href="#changeBarTitle" onclick="showSignupForm()" style="cursor:pointer">&nbsp; &nbsp; <u>Register</u></a></p>
+				<div class="search">
+					<form action="#">
+						<input type="text" name="sitesearch" id="sitesearch" value="Enter a word..." onfocus="document.getElementById('sitesearch').value='';" onblur="document.getElementById('sitesearch').value='Enter a word...';"/>
+						<input type="submit" name="start_search" class="button" value="Search"/>
+					</form>
+				</div>
+			</div>
+	</section>
+	<!-- PLCE HOLDER -->
+        <div id="place_holder" style="border: 1px solid grey;display:none">
+			<object id="object_content" type="text/html" data="" width="100%">
+    </object></div>
+    <!-- PLCE HOLDER -->
+    <div id="home">
+
+        <section id="boxcontent">
+        	<h2 class="hidden">Adipiscing</h2>
+            <article>
+                <img id="img1" src="images/blood_don.png" alt="Some alt text"/>
+                <h3>Voluntary</h3>
+                <p>
+                    A Completely voluntary based application where people  may volunteer themselves for emergency medical help, blood donation  and organ donation.
+                </p>
+            </article>
+            <article>
+                <img id="img2" src="images/give.png" alt="Some alt text"/>
+                <h3>Collaboration & Cooperation</h3>
+                <p>
+                    Collaboration and cooperation in regard to exchanging information and help on life support. You can seek help and also extend your help here.
+                </p>
+            </article>
+            <article>
+                <img id="img3" src="images/heart.png" alt="Some alt text"/>
+                <h3>Philanthropic</h3>
+                <p>
+                    This philanthropic platform is to support human in need, in their emergency and people who are struggling for their lives.
+                </p>
+            </article>
+
+        </section>
+
+        <section id="four_columns">
+            <h2>
+                How You Can Support
+            </h2>
+            <article class="img-item">
+				<h3 class="hidden">Lorem Ipsum</h3>
+				<figure>
+					<a href="images/plus.png" rel="lightbox" title="Some title">
+						<span class="thumb-screen"></span>
+						<img src="images/plus.png" id="img7" style="height:112px;width:110px;" alt="Some alt text"/>
+					</a>
+					<figcaption>
+						<strong>
+							By Sharing Information
+						</strong>
+						Sharing information related to medical institution, ambulance service, blood/organ bank and your own experience can be fruitful to others.
+					</figcaption>
+				</figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Dolor Sit</h3>
+                <figure>
+                    <a href="img/example-slide-3.jpg" rel="lightbox" title="Some title">
+                        <span class="thumb-screen"></span>
+                        <img src="images/gift.png" id="img6" alt="Some alt text"/>
+                    </a>
+                    <figcaption>
+                        <strong>
+                            By Donating Blood
+                        </strong>
+                        During any medical emergency getting blood of a specific group is not very easy  so by donating blood to needy users can be a great help.
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Sit Amet</h3>
+                <figure>
+                    <a href="images/basic_life.png" rel="lightbox" title="Some title">
+                        <span class="thumb-screen"></span>
+                        <img src="images/basic_life.png" id="img5" alt="Some alt text"/>
+                    </a>
+                    <figcaption>
+                        <strong>
+                            By Extending Your Help
+                        </strong>
+                        Appropriate response for requestor's queries in need are a kind of help that could make someone happy.
+                    </figcaption>
+                </figure>
+            </article>
+
+			<article class="img-item">
+				<h3 class="hidden">Dolor sit amet</h3>
+				<figure>
+					<a href="images/organ.png" rel="lightbox" title="Some title">
+						<span class="thumb-screen"></span>
+						<img src="images/organ.png" id="img4" alt="Some alt text"/>
+					</a>
+					<figcaption>
+						<strong>
+							By Donating Organ
+						</strong>
+						You could register youself here for donating organ posthumously. You could also connect people for this noble cause.
+					</figcaption>
+				</figure>
+            </article>
+            <br class="clear"/>
+            <br class="clear"/>
+        </section>
+		<section id="four_columns">
+			<h2>
+                Place Request
+            </h2>
+
+
+            <article class="img-item">
+				<h3 class="hidden">Lorem Ipsum</h3>
+				<figure>
+					<a href="images/info_rq.png" rel="lightbox" title="Some title">
+						<span class="thumb-screen"></span>
+						<img src="images/info_rq.png" id="img8" style="height:70px;width:170px;margin-top:20px" alt="Some alt text"/>
+					</a>
+
+					<figcaption>
+						<strong style="margin-top:20px">
+							Request For Information
+						</strong>
+						You could request for information related to medical institution, ambulance service, blood/organ bank, doctor etc.
+					</figcaption>
+				</figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Dolor Sit</h3>
+                <figure>
+                    <a href="images/blood_rq.png" rel="lightbox" title="Some title">
+                        <span class="thumb-screen"></span>
+                        <img src="images/blood_rq.png" id="img9" style="height:100px;width:100px;" alt="Some alt text"/>
+                    </a>
+
+                    <figcaption>
+                        <strong>
+                            Request For Blood
+                        </strong>
+                        You could place request for blood.
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Sit Amet</h3>
+                <figure>
+                    <a href="images/organ_rq.png" rel="lightbox" title="Some title">
+                        <span class="thumb-screen"></span>
+                        <img src="images/organ_rq.png" id="img10" style="height:100px;width:190px;"alt="Some alt text"/>
+                    </a>
+
+                    <figcaption>
+                        <strong>
+                            Request For Organ
+                        </strong>
+                        By requesting this you could get information specific to organ.
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Sit Amet</h3>
+                <figure>
+                    <a href="images/coming_soon.png" rel="lightbox" title="Some title">
+                        <span class="thumb-screen"></span>
+                        <img src="images/coming_soon.png" id="img11" style="height:100px;width:190px;"alt="Some alt text"/>
+                    </a>
+
+                    <figcaption>
+                        <strong>
+                            More Request Option
+                        </strong>
+                        This space would contain more request type.
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+         <section id="text_columns">
+		        	<h2 class="hidden">Blindtext</h2>
+		            <article class="column1">
+		                <h3>Recent Activities</h3>
+		                <p>Activities like facebook update, which user just joined, who placed what request, who successfully extended help to a requestor. These all activities could be listed based on importance and timestamps.</p>
+		                    <p>Any logged in user can view detail of those activities by clicking on that link. For example to see profile of other user or to show eagerness to help a request by clicking accept to each request.</p>
+		             <br class="clear"/>
+		             <article class="column1">
+		             <h3>Your Current Location</h3>
+		             <p id="demo"></p>
+		             <div id="mapholder"></div>
+		             </article>
+		            </article>
+		            <section class="column2">
+		            	<h3 class="hidden">Lorem Impsum</h3>
+		                <article class="row">
+		                	<h4 class="hidden">Dolor sit</h4>
+		                    <img src="images/doctors.png" width="80" class="rocket" alt="Some alt text"/>
+		                    <p>Here we can place doctor's advice, health tips, experienced personel's suggestion, experience. This is a take away place.</p>
+		                </article>
+		                <article class="row">
+		                	<h4 class="hidden">Ipsum</h4>
+		                    <img src="images/announcement.png" width="80" class="clock" alt="Some alt text"/>
+		                    <p>Any important announcement can be published here. Like blood donation camp, free eye/health checkup...</p>
+		                </article>
+		            </section>
+        </section>
+</div>
+
+
+        <footer>
+        	<h2 class="hidden">Our footer</h2>
+            <section id="copyright">
+            	<h3 class="hidden">Copyright notice</h3>
+                <div class="wrapper">
+                    <div class="social">
+                        <a href="javascript:void(0)"><img src="images/icon6.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="images/icon7.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="images/icon8.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="images/icon9.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="images/icon10.png" alt="Some alt text" width="25"/></a>
+                    </div>
+                    &copy; Copyright 2016 by <a href="">Marshian@TCS</a>. All Rights Reserved.
+                </div>
+            </section>
+            <section class="wrapper">
+            	<h3 class="hidden">Footer content</h3>
+                <article class="column">
+                    <h4>Lorem ipsum</h4>
+                    Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "und" und das Blindtextchen solle umkehren und wieder in sein.
+                </article>
+                <article class="column midlist">
+                    <h4>Consectetuer</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)">Die Copy warnte das Blindtextchen</a></li>
+                        <li><a href="javascript:void(0)">Unterwegs traf es eine Copy</a></li>
+                        <li><a href="javascript:void(0)">Doch alles Gutzureden konnte</a></li>
+                        <li><a href="javascript:void(0)">Als es die ersten Hügel</a></li>
+                    </ul>
+                </article>
+                <article class="column rightlist">
+                    <h4>Dolor sit amet</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)"><img src="img/example-slide-1sml.jpg" width="80" alt="Some alt text"/><span>Unterwegs traf es eine Copy. Die Copy warnte.</span></a></li>
+                        <li><a href="javascript:void(0)"><img src="img/example-slide-2sml.jpg" width="80" alt="Some alt text"/><span>Doch alles Gutzureden konnte es nicht.</span></a></li>
+                        <li><a href="javascript:void(0)"><img src="img/example-slide-3sml.jpg" width="80" alt="Some alt text"/><span>Und es dann in ihre Agentur schleppten.</span></a></li>
+                    </ul>
+                    <br class="clear"/>
+                </article>
+            </section>
+        </footer>
+	</body>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<!--	<script src="http://www.google.com/jsapi?key=AIzaSyC3tWXAypcTlfZ9egK6G6xkYt_PkQe52PM"></script>-->
+
+<script src="js/gmap_script.js"></script>
+
+</html>
