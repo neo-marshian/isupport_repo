@@ -76,7 +76,7 @@ public class UploadServlet extends HttpServlet {
 			conn = getConnection();		
 			stmt =  conn.createStatement();
 		// Execute some SQL statements on the table: Insert, Select and Delete
-
+System.out.println("attribute------------>"+request.getAttribute("user_id"));
 			sqlStatement = "SELECT * FROM " + tableName + " WHERE USER_ID='"+request.getParameter("user_id")+"'";
 			ResultSet rs = stmt.executeQuery(sqlStatement);
 			System.out.println("Query-->"+sqlStatement);

@@ -20,10 +20,9 @@
 			 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 			 }
 			 xmlhttp.onreadystatechange=function(){
-				 alert(xmlhttp.status);
 			 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-			 		alert(xmlhttp.responseText.toJSON());
+			 		alert(xmlhttp.responseText);
 					document.getElementById("res").innerHTML=xmlhttp.responseText.toJSON();
 					top.document.getElementById('user_name_td').innerHTML='New User';
 					top.document.getElementById('loading').style.display='none';
