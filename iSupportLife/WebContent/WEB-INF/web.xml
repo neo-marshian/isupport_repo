@@ -6,7 +6,7 @@
   <servlet>
     <display-name>HomeServlet</display-name>
     <servlet-name>HomeServlet</servlet-name>
-    <servlet-class>com.ibm.bluemix.samples.HomeServlet</servlet-class>
+    <servlet-class>com.tcs.bluemix.isupport.HomeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HomeServlet</servlet-name>
@@ -15,19 +15,28 @@
   <servlet>
     <display-name>DeleteServlet</display-name>
     <servlet-name>DeleteServlet</servlet-name>
-    <servlet-class>com.ibm.bluemix.samples.DeleteServlet</servlet-class>
+    <servlet-class>com.tcs.bluemix.isupport.DeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteServlet</servlet-name>
     <url-pattern>/delete</url-pattern>
   </servlet-mapping>
   <servlet>
-    <display-name>UploadServlet</display-name>
-    <servlet-name>UploadServlet</servlet-name>
-    <servlet-class>com.ibm.bluemix.samples.UploadServlet</servlet-class>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.tcs.bluemix.isupport.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UploadServlet</servlet-name>
-    <url-pattern>/upload</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>SignupServlet</display-name>
+    <servlet-name>SignupServlet</servlet-name>
+    <servlet-class>com.tcs.bluemix.isupport.SignupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignupServlet</servlet-name>
+    <url-pattern>/signup</url-pattern>
+  </servlet-mapping>  
 </web-app>

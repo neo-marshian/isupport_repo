@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="css/style_signup.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/demo_signup.css" media="all" />
+    <script src="js/custom_signup_script.js"></script>
 </head>
 <body>
 <div class="container">
@@ -61,7 +62,7 @@
 
             <p class="contact"><label for="phone">Mobile phone</label></p>
             <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
-            <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit">
+            <input class="buttom" onclick="AJAXPost('contactform');" name="submit" id="submit" tabindex="5" value="Sign me up!" type="button">
    </form>
 </div>
 </div>

@@ -40,7 +40,7 @@
 /* intended to state or imply that IBM's licensed program must be    */
 /* used. Any functionally equivalent program may be used.            */
 /*-------------------------------------------------------------------*/
-package com.ibm.bluemix.samples;
+package com.tcs.bluemix.isupport;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -40,7 +40,7 @@
 /* intended to state or imply that IBM's licensed program must be    */
 /* used. Any functionally equivalent program may be used.            */
 /*-------------------------------------------------------------------*/
-package com.ibm.bluemix.samples;
+package com.tcs.bluemix.isupport;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,50 +61,49 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 @SuppressWarnings("serial")
-public class UploadServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("----Upload Servlet doPost-----");
+		System.out.println("----Login Servlet doPost-----");
 		Connection conn = null;
 		Statement stmt =  null;
 		String sqlStatement = null;
 		String tableName = "USER14281.MYTABLE";
 		PrintWriter pw = response.getWriter();
+		JSONObject obj = new JSONObject();
+		obj.put("err_msg","");
 		try {
 			conn = getConnection();		
 			stmt =  conn.createStatement();
 		// Execute some SQL statements on the table: Insert, Select and Delete
-System.out.println("attribute------------>"+request.getAttribute("user_id"));
+
 			sqlStatement = "SELECT * FROM " + tableName + " WHERE USER_ID='"+request.getParameter("user_id")+"'";
 			ResultSet rs = stmt.executeQuery(sqlStatement);
 			System.out.println("Query-->"+sqlStatement);
 			// Process the result set
-			String userName;
-			JSONObject obj = new JSONObject();
+			String userName;			
 			response.setContentType("application/json");
-			System.out.println("<<---JSON Handle in Servlet---->");
+			System.out.println("<---JSON Handle in Servlet---->");
 			response.setStatus(200);
 			if (rs.next()) {
 				userName = rs.getString(2);
 				obj.put("name", userName);
-			    pw.write(obj.toString());
+				obj.put("age", new Integer("24"));
 				//pw.println("<b style='color:green'>Found User: " + userName+"</b>");
 			} else{
-				pw.println("<b style='color:red'>User ID or Password not valid!</b>");
+				obj.put("err_msg", "<b style='color:red'>User ID or Password not valid!</b>");
 			}
 					      
 			// Close the ResultSet
 			rs.close();
 
-		} catch (SQLException e) {
-			pw.println("Error executing:" + sqlStatement);
-			pw.println("SQL Exception: " + e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			obj.put("err_msg", "<b style='color:red'>System experiences some problem. Please try after sometime!</b>");
 			e.printStackTrace();
 		}
+	    pw.write(obj.toString());
 		pw.flush();
 		pw.close();
 

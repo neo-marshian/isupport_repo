@@ -10,7 +10,6 @@
 		
 		function login(){
 			 top.document.getElementById('loading').style.display='block';
-			 alert(document.getElementById("user_id").value);
 			 if (window.XMLHttpRequest)
 			 {// code for IE7+, Firefox, Chrome, Opera, Safari
 			     xmlhttp=new XMLHttpRequest();
@@ -20,17 +19,37 @@
 			 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 			 }
 			 xmlhttp.onreadystatechange=function(){
+				 //alert(xmlhttp.status);
 			 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-			 		alert(xmlhttp.responseText);
-					document.getElementById("res").innerHTML=xmlhttp.responseText.toJSON();
-					top.document.getElementById('user_name_td').innerHTML='New User';
+			 		var obj = JSON.parse(xmlhttp.responseText);
+			 		//alert(obj.age);
+			 		if(obj.err_msg != ''){
+			 			document.getElementById("res").innerHTML=obj.err_msg;
+			 		} else{			 			
+			 			top.document.getElementById('user_name_td').innerHTML=obj.name;
+			 			showHomeFromLogin();
+			 		}										
 					top.document.getElementById('loading').style.display='none';
 				}
 			  
 			 }
 			  xmlhttp.open("POST","/iSupportLife/upload",true);
+			  xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			  xmlhttp.send("user_id="+document.getElementById("user_id").value);		 
 			
 		}
+		
+		function showHomeFromLogin(){   
+			top.document.getElementById('login_menu').style.display='none';
+			top.document.getElementById('logout_menu').style.display='block';
+        	top.document.getElementById('place_holder').style.display='none';
+        	top.document.getElementById('home').style.display='block';
+        	top.document.getElementById('homeBarContent').style.display='none';
+        	top.document.getElementById('slider_section').style.display='block';
+        	top.document.getElementById('changeBarTitle').innerHTML='';
+        }
+		
+
+		
 

@@ -56,3 +56,10 @@
         	document.getElementById('homeBarContent').style.display='none';
         	document.getElementById('changeBarTitle').innerHTML='Login';
         }
+        
+		function logout(){
+			document.getElementById('login_menu').style.display='block';
+			document.getElementById('logout_menu').style.display='none';
+			document.getElementById('user_name_td').innerHTML='Guest';
+			document.getElementById('homeBarContent').style.display='block';
+		}
