@@ -82,12 +82,19 @@ public class UploadServlet extends HttpServlet {
 			System.out.println("Query-->"+sqlStatement);
 			// Process the result set
 			String userName;
+			JSONObject obj = new JSONObject();
+			response.setContentType("application/json");
+			System.out.println("<<---JSON Handle in Servlet---->");
+			response.setStatus(200);
 			if (rs.next()) {
 				userName = rs.getString(2);
-				pw.println("<b style='color:green'>Found User: " + userName+"</b>");
+				obj.put("name", userName);
+			    pw.write(obj.toString());
+				//pw.println("<b style='color:green'>Found User: " + userName+"</b>");
 			} else{
 				pw.println("<b style='color:red'>User ID or Password not valid!</b>");
 			}
+					      
 			// Close the ResultSet
 			rs.close();
 
@@ -98,9 +105,9 @@ public class UploadServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		pw.flush();
+		pw.close();
 
-		response.setContentType("text/html");
-		response.setStatus(200);
 		//request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
