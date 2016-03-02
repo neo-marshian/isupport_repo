@@ -61,10 +61,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 @SuppressWarnings("serial")
-public class LoginServlet extends HttpServlet {
+public class User {
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("----Login Servlet doPost-----");
 		Connection conn = null;
@@ -92,13 +92,19 @@ public class LoginServlet extends HttpServlet {
 				obj.put("name", userName);
 				obj.put("age", new Integer("24"));
 				//pw.println("<b style='color:green'>Found User: " + userName+"</b>");
+				if(null != request.getSession(false)){
+					request.getSession(false).invalidate();
+				} 
+				request.getSession(true).setAttribute("user_json", obj);
+				
 			} else{
 				obj.put("err_msg", "<b style='color:red'>User ID or Password not valid!</b>");
 			}
 					      
 			// Close the ResultSet
 			rs.close();
-
+			stmt.close();
+			conn.close();
 		} catch (Exception e) {
 			obj.put("err_msg", "<b style='color:red'>System experiences some problem. Please try after sometime!</b>");
 			e.printStackTrace();
@@ -110,49 +116,33 @@ public class LoginServlet extends HttpServlet {
 		//request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void logout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if(null != request.getSession(false)){
+			request.getSession(false).invalidate();
+		} 
+		
+	}
+	
+	protected void signup(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("----Signup Servlet doPost-----");
 		Connection conn = null;
-		try {
-			conn = getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// TODO Auto-generated method stub
-		String stdkey = request.getParameter("key");
-		stdkey = "%" + stdkey + "%";
-		// test purpose		
-		System.out.println("----------------Inside doGet from Ajax-------------" + stdkey);
 		Statement stmt =  null;
 		String sqlStatement = null;
 		String tableName = "USER14281.MYTABLE";
-		PrintWriter pw = response.getWriter();
-		// Execute some SQL statements on the table: Insert, Select and Delete
 		try {
+			String name = request.getParameter("name");
+			String userId = request.getParameter("username");
+			int year = new Integer(request.getParameter("BirthYear"));
+			conn = getConnection();	
 			stmt =  conn.createStatement();
-			sqlStatement = "INSERT INTO " + tableName + " VALUES (\'js500\',\'John Smith\', 52)";
+			sqlStatement = "INSERT INTO " + tableName + " VALUES ('"+userId+"','"+name+"', "+(2016-year)+")";
 			stmt.executeUpdate(sqlStatement);
-
-			sqlStatement = "SELECT * FROM " + tableName + " WHERE USER_NAME LIKE \'John%\'";
-			ResultSet rs = stmt.executeQuery(sqlStatement);
-
-			// Process the result set
-			String userId;
-			while (rs.next()) {
-				userId = rs.getString(1);
-				pw.println("Found Employee: " + userId);
-			}
-			// Close the ResultSet
-			rs.close();
-
-			// Delete the record
-			sqlStatement = "DELETE FROM " + tableName + " WHERE USER_NAME = \'John Smith\'";
-			stmt.executeUpdate(sqlStatement);
-						
-		} catch (SQLException e) {
-			pw.println("Error executing:" + sqlStatement);
-			pw.println("SQL Exception: " + e);
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {			
+			e.printStackTrace();
 		}
 
 	}

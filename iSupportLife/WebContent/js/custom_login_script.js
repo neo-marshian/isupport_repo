@@ -34,9 +34,9 @@
 				}
 			  
 			 }
-			  xmlhttp.open("POST","/iSupportLife/upload",true);
+			  xmlhttp.open("POST","/iSupportLife/master",true);
 			  xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			  xmlhttp.send("user_id="+document.getElementById("user_id").value);		 
+			  xmlhttp.send("action=login&user_id="+document.getElementById("user_id").value);		 
 			
 		}
 		
@@ -49,7 +49,5 @@
         	top.document.getElementById('slider_section').style.display='block';
         	top.document.getElementById('changeBarTitle').innerHTML='';
         }
-		
-
 		
 

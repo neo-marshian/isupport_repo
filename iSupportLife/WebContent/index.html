@@ -145,7 +145,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 			<h2 class="hidden">Dolor sit amet</h2>
 			<p id="changeBarTitle"></p>
 			<div>
-				<p id="homeBarContent">Welcome to iSupport Life, are you ready to join? <a href="#changeBarTitle" onclick="showSignupForm()" style="cursor:pointer">&nbsp; &nbsp; <u>Register</u></a></p>
+				<p id="homeBarContent">Welcome to iSupport Life, are you ready to join? <a href="javascript:void(0)" onclick="showSignupForm()" style="cursor:pointer">&nbsp; &nbsp; <u>Register</u></a></p>
 				<div id="search" class="search">
 					<form action="#">
 						<input type="text" name="sitesearch" id="sitesearch" value="Enter a word..." onfocus="document.getElementById('sitesearch').value='';" onblur="document.getElementById('sitesearch').value='Enter a word...';"/>
@@ -260,14 +260,11 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
                 Place Request
             </h2>
 
-
             <article class="img-item">
 				<h3 class="hidden">Lorem Ipsum</h3>
-				<figure>
-					<a href="images/info_rq.png" rel="lightbox" title="Some title">
-						<span class="thumb-screen"></span>
-						<img src="images/info_rq.png" id="img8" style="height:70px;width:170px;margin-top:20px" alt="Some alt text"/>
-					</a>
+				<figure>						
+						<img src="images/info_rq.png" id="img8" onclick="requestInformation()"
+						style="height:70px;width:170px;margin-top:20px;cursor:pointer" alt="Some alt text"/>
 
 					<figcaption>
 						<strong style="margin-top:20px">
@@ -279,27 +276,20 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             </article>
             <article class="img-item">
             	<h3 class="hidden">Dolor Sit</h3>
-                <figure>
-                    <a href="images/blood_rq.png" rel="lightbox" title="Some title">
-                        <span class="thumb-screen"></span>
-                        <img src="images/blood_rq.png" id="img9" style="height:100px;width:100px;" alt="Some alt text"/>
-                    </a>
-
-                    <figcaption>
-                        <strong>
-                            Request For Blood
-                        </strong>
-                        You could place request for blood.
-                    </figcaption>
-                </figure>
-            </article>
+				<figure>
+					<img src="images/blood_rq.png" id="img9" onclick="showRequestBloodForm()"
+						style="height: 100px; width: 100px;cursor:pointer" alt="Some alt text" />
+					<figcaption>
+						<strong> Request For Blood </strong> You could place request for
+						blood.
+					</figcaption>
+				</figure>
+			</article>
             <article class="img-item">
             	<h3 class="hidden">Sit Amet</h3>
                 <figure>
-                    <a href="images/organ_rq.png" rel="lightbox" title="Some title">
-                        <span class="thumb-screen"></span>
-                        <img src="images/organ_rq.png" id="img10" style="height:100px;width:190px;"alt="Some alt text"/>
-                    </a>
+                        <img src="images/organ_rq.png" id="img10" onclick=""
+                        style="height:100px;width:190px;cursor:pointer"alt="Some alt text"/>
 
                     <figcaption>
                         <strong>
@@ -312,11 +302,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             <article class="img-item">
             	<h3 class="hidden">Sit Amet</h3>
                 <figure>
-                    <a href="images/coming_soon.png" rel="lightbox" title="Some title">
-                        <span class="thumb-screen"></span>
-                        <img src="images/coming_soon.png" id="img11" style="height:100px;width:190px;"alt="Some alt text"/>
-                    </a>
-
+                    <img src="images/coming_soon.png" id="img11" style="height:100px;width:190px;cursor:pointer"alt="Some alt text"/>
                     <figcaption>
                         <strong>
                             More Request Option
@@ -365,7 +351,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
                         <a href="javascript:void(0)"><img src="images/icon7.png" alt="Some alt text" width="25"/></a>
                         <a href="javascript:void(0)"><img src="images/icon8.png" alt="Some alt text" width="25"/></a>
                         <a href="javascript:void(0)"><img src="images/icon9.png" alt="Some alt text" width="25"/></a>
-                        <a href="javascript:void(0)"><img src="images/icon10.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="" alt="Some alt text" width="25"/></a>
                     </div>
                     &copy; Copyright 2016 by <a href="">Marshian@TCS</a>. All Rights Reserved.
                 </div>
@@ -388,9 +374,9 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
                 <article class="column rightlist">
                     <h4>Dolor sit amet</h4>
                     <ul>
-                        <li><a href="javascript:void(0)"><img src="img/example-slide-1sml.jpg" width="80" alt="Some alt text"/><span>Unterwegs traf es eine Copy. Die Copy warnte.</span></a></li>
-                        <li><a href="javascript:void(0)"><img src="img/example-slide-2sml.jpg" width="80" alt="Some alt text"/><span>Doch alles Gutzureden konnte es nicht.</span></a></li>
-                        <li><a href="javascript:void(0)"><img src="img/example-slide-3sml.jpg" width="80" alt="Some alt text"/><span>Und es dann in ihre Agentur schleppten.</span></a></li>
+                        <li><a href="javascript:void(0)"><img src="" width="80" alt="Some alt text"/><span>Unterwegs traf es eine Copy. Die Copy warnte.</span></a></li>
+                        <li><a href="javascript:void(0)"><img src="" width="80" alt="Some alt text"/><span>Doch alles Gutzureden konnte es nicht.</span></a></li>
+                        <li><a href="javascript:void(0)"><img src="" width="80" alt="Some alt text"/><span>Und es dann in ihre Agentur schleppten.</span></a></li>
                     </ul>
                     <br class="clear"/>
                 </article>

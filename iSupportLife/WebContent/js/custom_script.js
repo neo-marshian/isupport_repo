@@ -58,8 +58,42 @@
         }
         
 		function logout(){
-			document.getElementById('login_menu').style.display='block';
-			document.getElementById('logout_menu').style.display='none';
-			document.getElementById('user_name_td').innerHTML='Guest';
-			document.getElementById('homeBarContent').style.display='block';
+			 if (window.XMLHttpRequest)
+			 {// code for IE7+, Firefox, Chrome, Opera, Safari
+			     xmlhttp=new XMLHttpRequest();
+			 }
+			 else
+			 {// code for IE6, IE5
+			 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			 }
+			 xmlhttp.onreadystatechange=function(){
+				 //alert(xmlhttp.status);
+			 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{									
+
+					document.getElementById('login_menu').style.display='block';
+					document.getElementById('logout_menu').style.display='none';
+					document.getElementById('user_name_td').innerHTML='Guest';
+					document.getElementById('homeBarContent').style.display='block';
+					alert('You Have Successfully Logged Out!');
+				}
+			  
+			 }
+			  xmlhttp.open("POST","/iSupportLife/master",true);
+			  xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			  xmlhttp.send("action=logout");	 
+		
 		}
+		
+		
+        function showRequestBloodForm(){
+        	document.getElementById('place_holder').style.display='block';
+        	document.getElementById('home').style.display='none';
+        	document.getElementById('slider_section').style.display='none';
+        	document.getElementById('object_content').data='request.html';
+        	document.getElementById('object_content').height="750px";
+        	document.getElementById('homeBarContent').style.display='none';
+        	document.getElementById('changeBarTitle').innerHTML='Request Blood Form';
+        	document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        
