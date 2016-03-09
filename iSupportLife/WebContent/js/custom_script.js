@@ -39,12 +39,17 @@
         	document.getElementById('slider_section').style.display='none';
 		}
 
-        function showHome(){        	
+        function showHome(){  
         	document.getElementById('place_holder').style.display='none';
-        	document.getElementById('home').style.display='block';
-        	document.getElementById('homeBarContent').style.display='block';
+        	document.getElementById('home').style.display='block';        	
         	document.getElementById('slider_section').style.display='block';
         	document.getElementById('changeBarTitle').innerHTML='';
+        	if(document.getElementById('logout_menu').style.display == 'none'){
+        		document.getElementById('homeBarContent').style.display='block';
+        	} else{
+        		document.getElementById('homeBarContent').style.display='none';
+        	}
+        	
         }
 
         function showLogin(){
@@ -55,6 +60,13 @@
         	document.getElementById('object_content').height="400px";
         	document.getElementById('homeBarContent').style.display='none';
         	document.getElementById('changeBarTitle').innerHTML='Login';
+        }
+        
+        function getProfile(){
+        	if(document.getElementById('user_name_td').value != ''){
+        		alert('my profile');
+        	}       	
+        	
         }
         
 		function logout(){
@@ -74,8 +86,12 @@
 					document.getElementById('login_menu').style.display='block';
 					document.getElementById('logout_menu').style.display='none';
 					document.getElementById('user_name_td').innerHTML='Guest';
-					document.getElementById('homeBarContent').style.display='block';
+					document.getElementById('user_name_td').value='';
+					document.getElementById('user_name_td').style.cursor="hand";
+		 			document.getElementById('user_name_td').style.textDecoration="normal";
+					//document.getElementById('homeBarContent').style.display='block';
 					alert('You Have Successfully Logged Out!');
+					showHome();
 				}
 			  
 			 }
@@ -93,7 +109,7 @@
         	document.getElementById('object_content').data='request.html';
         	document.getElementById('object_content').height="750px";
         	document.getElementById('homeBarContent').style.display='none';
-        	document.getElementById('changeBarTitle').innerHTML='Request Blood Form';
+        	document.getElementById('changeBarTitle').innerHTML='Blood Request Form';
         	document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
         

@@ -28,6 +28,10 @@
 			 			document.getElementById("res").innerHTML=obj.err_msg;
 			 		} else{			 			
 			 			top.document.getElementById('user_name_td').innerHTML=obj.name;
+			 			alert(obj.name);
+			 			top.document.getElementById('user_name_td').data('user_id',obj.user_id);
+			 			top.document.getElementById('user_name_td').style.cursor="pointer";
+			 			top.document.getElementById('user_name_td').style.textDecoration="underline";
 			 			showHomeFromLogin();
 			 		}										
 					top.document.getElementById('loading').style.display='none';
