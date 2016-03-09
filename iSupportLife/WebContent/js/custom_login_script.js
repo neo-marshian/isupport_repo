@@ -23,13 +23,11 @@
 			 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
 			 		var obj = JSON.parse(xmlhttp.responseText);
-			 		//alert(obj.age);
 			 		if(obj.err_msg != ''){
 			 			document.getElementById("res").innerHTML=obj.err_msg;
 			 		} else{			 			
 			 			top.document.getElementById('user_name_td').innerHTML=obj.name;
-			 			alert(obj.name);
-			 			top.document.getElementById('user_name_td').data('user_id',obj.user_id);
+			 			top.document.getElementById('user_name_td').value=obj.user_id;
 			 			top.document.getElementById('user_name_td').style.cursor="pointer";
 			 			top.document.getElementById('user_name_td').style.textDecoration="underline";
 			 			showHomeFromLogin();

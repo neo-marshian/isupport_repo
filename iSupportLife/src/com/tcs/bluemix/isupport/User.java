@@ -72,6 +72,7 @@ public class User {
 		String tableName = "USER14281.MYTABLE";
 		PrintWriter pw = response.getWriter();
 		JSONObject obj = new JSONObject();
+		obj.put("err_msg","");
 		obj.put("user_id", request.getParameter("user_id"));
 		conn = getConnection();
 		stmt = conn.createStatement();
