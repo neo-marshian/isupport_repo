@@ -32,9 +32,11 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
         <link href="lightbox/css/lightbox.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+		<link href="css/customAlert.css" rel="stylesheet">
 
         <script src="js/vendor/modernizr.min.js"></script>
-        <script src="js/vendor/respond.min.js"></script>
+        <script src="js/vendor/respond.min.js"></script>        
+        
 
         <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -44,7 +46,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         <script src="js/vendor/prefixfree.min.js"></script>
         <script src="js/vendor/jquery.slides.min.js"></script>
         <script src="js/script.js"></script>
-
+		<script src="js/customAlert.js"></script>
         <script src="js/custom_script.js"></script>
 
         <!--[if lt IE 9]>
@@ -73,6 +75,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 			width:200px;
 		}
         </style>
+
 	</head>
 
 	<body onload="getLocation();">
@@ -109,7 +112,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
                     <li><a href="javascript:void(0)" onclick="showHome()">Home</a></li>
                     <li id="login_menu"><a href="javascript:void(0)" onclick="showLogin()">Login</a></li>
                     <li id="logout_menu" style="display:none"><a href="javascript:void(0)" onclick="logout()">Logout</a></li>
-                    <li><a href="javascript:void(0)">Community</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert(1);">Community</a></li>
                     <li><a href="javascript:void(0)" onclick="showAbout()">About</a></li>
                     <li><a href="javascript:void(0)">Contact</a></li>
                 </ul>
@@ -263,24 +266,24 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             <section class="wrapper">
             	<h3 class="hidden">Footer content</h3>
                 <article class="column">
-                    <h4>Lorem ipsum</h4>
-                    Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "und" und das Blindtextchen solle umkehren und wieder in sein.
+                    <h4>Disclaimer</h4>
+                    With respect to all information provided in or linked to through this website, it makes no warranties of any kind, express or implied and shall not be liable for any loss arising out of use of this information, including without limitation any indirect or consequential damages. 
                 </article>
                 <article class="column midlist">
-                    <h4>Consectetuer</h4>
+                    <h4>Links</h4>
                     <ul>
-                        <li><a href="javascript:void(0)">Die Copy warnte das Blindtextchen</a></li>
-                        <li><a href="javascript:void(0)">Unterwegs traf es eine Copy</a></li>
-                        <li><a href="javascript:void(0)">Doch alles Gutzureden konnte</a></li>
-                        <li><a href="javascript:void(0)">Als es die ersten Hügel</a></li>
+                        <li><a href="javascript:void(0)">Terms of Use</a></li>
+                        <li><a href="javascript:void(0)">Sitemap</a></li>
+                        <li><a href="javascript:void(0)">Feedback</a></li>
+                        <li><a href="javascript:void(0)">Browser and Display Compatibility</a></li>
                     </ul>
                 </article>
                 <article class="column rightlist">
-                    <h4>Dolor sit amet</h4>
+                    <h4>Help Us To Help Other</h4>
                     <ul>
-                        <li><a href="javascript:void(0)"><span>Unterwegs traf es eine Copy. Die Copy warnte.</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Doch alles Gutzureden konnte es nicht.</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Und es dann in ihre Agentur schleppten.</span></a></li>
+                        <li><a href="javascript:void(0)"><span>As A Developer</span></a></li>
+                        <li><a href="javascript:void(0)"><span>As A Sponsor</span></a></li>
+                        <li><a href="javascript:void(0)"><span>As An iSupport Life User</span></a></li>
                     </ul>
                     <br class="clear"/>
                 </article>

@@ -107,7 +107,7 @@
 					document.getElementById('user_name_td').style.cursor="default";
 		 			document.getElementById('user_name_td').style.textDecoration="none";
 					//document.getElementById('homeBarContent').style.display='block';
-					alert('You Have Successfully Logged Out!');
+					swal('You Have Successfully Logged Out!');
 					showHome();
 				}
 			  
@@ -121,9 +121,9 @@
 		
         function showRequestBloodForm(){
         	var v = document.getElementById('user_name_td').value;
-        	if(v == '' || v == null || v == undefined){
+        	if(v == '' || v == null || v == undefined){        		
+        		swal("Please login first to place request!");
         		showLogin();
-        		alert('Please login first to place request!');
         		return;
         	}
         	document.getElementById('place_holder').style.display='block';
