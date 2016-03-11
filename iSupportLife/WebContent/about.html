@@ -1,0 +1,174 @@
+<!--
+This HTML5 website is part of a HTML5 / CSS3 tutorial created by Christoph Anastasiades (http://www.lingulo.com)
+Feel free to use it for your personal or commercial projects and/or change it in any way you like.
+
+USE THIS TEMPLATE ON YOUR OWN RISK AND PLEASE BE AWARE THAT I DO NOT GUARANTEE THE CORRECTNESS OF THE FILES
+DOWNLOADED ON http://www.lingulo.com AND WILL NOT BE RESPONSIBLE FOR ANY LOSS OR DAMAGE CAUSED THROUGH THE USE OF THESE FILES.
+
+I would be happy if you put a link to http://www.lingulo.com somewhere on your website to support my work. However this is not obligatory.
+
+Please note that you may not distribute the files downloaded from Lingulo.com or offer them for download.
+
+
+What you need to do to make this page work:
+
+- Find images for the jQuery Slider and for all the icons (the icons used in the tutorial are from http://www.iconarchive.com/show/icons8-metro-style-icons-by-visualpharm.1.html)
+
+To minimize the amount of HTTP requests combine all CSS files into one single file.
+
+!-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+        <title>About Page</title>
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        <link href="lightbox/css/lightbox.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+
+        <script src="js/vendor/modernizr.min.js"></script>
+        <script src="js/vendor/respond.min.js"></script>
+
+        <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js\/vendor\/1.7.2.jquery.min.js"><\/script>')</script>
+
+        <script src="lightbox/js/lightbox.js"></script>
+        <script src="js/vendor/prefixfree.min.js"></script>
+        <script src="js/vendor/jquery.slides.min.js"></script>
+        <script src="js/script.js"></script>
+
+        <!--[if lt IE 9]>
+            <style>
+                header
+                {
+                    margin: 0 auto 20px auto;
+                }
+                #four_columns .img-item figure span.thumb-screen
+                {
+                    display:none;
+                }
+            </style>
+        <![endif]-->
+
+
+        <style>
+
+        #img1, #img2, #img3{
+			height:64px;
+			width:64px;
+		}
+
+		#img4, #img5, #img6{
+			height:115px;
+			width:200px;
+		}
+        </style>
+	</head>
+
+	<body>
+
+    <div class="container">
+
+        <section id="boxcontent">
+        	<h2 class="hidden">Adipiscing</h2>
+            <article>
+                <img id="img1" src="images/blood_don.png" alt="Some alt text"/>
+                <h3>Voluntary</h3>
+                <p>
+                    A Completely voluntary based application where people  may volunteer themselves for emergency medical help, blood donation  and organ donation.
+                </p>
+            </article>
+            <article>
+                <img id="img2" src="images/give.png" alt="Some alt text"/>
+                <h3>Collaboration & Cooperation</h3>
+                <p>
+                    Collaboration and cooperation in regard to exchanging information and help on life support. You can seek help and also extend your help here.
+                </p>
+            </article>
+            <article>
+                <img id="img3" src="images/heart.png" alt="Some alt text"/>
+                <h3>Philanthropic</h3>
+                <p>
+                    This philanthropic platform is to support human in need, in their emergency and people who are struggling for their lives.
+                </p>
+            </article>
+
+        </section>
+
+        <section id="four_columns">
+            <h2>
+                How You Can Support
+            </h2>
+            <article class="img-item">
+				<h3 class="hidden">Lorem Ipsum</h3>
+				<figure>
+					
+						<img src="images/plus.png" id="img7" style="height:112px;width:110px;" alt="Some alt text"/>
+					
+					<figcaption>
+						<strong>
+							By Sharing Information
+						</strong>
+						Sharing information related to medical institution, ambulance service, blood/organ bank and your own experience can be fruitful to others.
+					</figcaption>
+				</figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Dolor Sit</h3>
+                <figure>
+                    
+                        <img src="images/gift.png" id="img6" alt="Some alt text"/>
+                   
+                    <figcaption>
+                        <strong>
+                            By Donating Blood
+                        </strong>
+                        During any medical emergency getting blood of a specific group is not very easy  so by donating blood to needy users can be a great help.
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="img-item">
+            	<h3 class="hidden">Sit Amet</h3>
+                <figure>
+                   
+                        <img src="images/basic_life.png" id="img5" alt="Some alt text"/>
+                   
+                    <figcaption>
+                        <strong>
+                            By Extending Your Help
+                        </strong>
+                        Appropriate response for requestor's queries in need are a kind of help that could make someone happy.
+                    </figcaption>
+                </figure>
+            </article>
+
+			<article class="img-item">
+				<h3 class="hidden">Dolor sit amet</h3>
+				<figure>
+						<img src="images/organ.png" id="img4" alt="Some alt text"/>
+					
+					<figcaption>
+						<strong>
+							By Donating Organ
+						</strong>
+						You could register youself here for donating organ posthumously. You could also connect people for this noble cause.
+					</figcaption>
+				</figure>
+            </article>
+            <br class="clear"/>
+            <br class="clear"/>
+        </section>
+</div>
+
+  
+	</body>
+
+</html>

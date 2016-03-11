@@ -96,7 +96,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             </div>
 			<table width="100%">
 				<tr>
-					<td width="70%"><h1>iSupport Life</h1>
+					<td width="70%"><h1 onclick="showHome()" id="logo">iSupport Life</h1>
 					<td>
 					<td style="vertical-align: top; padding-top: 5%; padding-left: 5%">Welcome:&nbsp;
 						<a id="user_name_td" onclick="getProfile()">Guest</a></td>
@@ -110,7 +110,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
                     <li id="login_menu"><a href="javascript:void(0)" onclick="showLogin()">Login</a></li>
                     <li id="logout_menu" style="display:none"><a href="javascript:void(0)" onclick="logout()">Logout</a></li>
                     <li><a href="javascript:void(0)">Community</a></li>
-                    <li><a href="javascript:void(0)">About</a></li>
+                    <li><a href="javascript:void(0)" onclick="showAbout()">About</a></li>
                     <li><a href="javascript:void(0)">Contact</a></li>
                 </ul>
             </nav>
@@ -154,107 +154,12 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
 				</div>
 			</div>
 	</section>
-	<!-- PLCE HOLDER -->
-        <div id="place_holder" style="border: 1px solid grey;display:none">
+	<!-- PLACE HOLDER -->
+        <div id="place_holder" style="display:none">
 			<object id="object_content" type="text/html" data="" width="100%">
     </object></div>
-    <!-- PLCE HOLDER -->
+    <!-- PLACE HOLDER -->
     <div id="home">
-
-        <section id="boxcontent">
-        	<h2 class="hidden">Adipiscing</h2>
-            <article>
-                <img id="img1" src="images/blood_don.png" alt="Some alt text"/>
-                <h3>Voluntary</h3>
-                <p>
-                    A Completely voluntary based application where people  may volunteer themselves for emergency medical help, blood donation  and organ donation.
-                </p>
-            </article>
-            <article>
-                <img id="img2" src="images/give.png" alt="Some alt text"/>
-                <h3>Collaboration & Cooperation</h3>
-                <p>
-                    Collaboration and cooperation in regard to exchanging information and help on life support. You can seek help and also extend your help here.
-                </p>
-            </article>
-            <article>
-                <img id="img3" src="images/heart.png" alt="Some alt text"/>
-                <h3>Philanthropic</h3>
-                <p>
-                    This philanthropic platform is to support human in need, in their emergency and people who are struggling for their lives.
-                </p>
-            </article>
-
-        </section>
-
-        <section id="four_columns">
-            <h2>
-                How You Can Support
-            </h2>
-            <article class="img-item">
-				<h3 class="hidden">Lorem Ipsum</h3>
-				<figure>
-					<a href="images/plus.png" rel="lightbox" title="Some title">
-						<span class="thumb-screen"></span>
-						<img src="images/plus.png" id="img7" style="height:112px;width:110px;" alt="Some alt text"/>
-					</a>
-					<figcaption>
-						<strong>
-							By Sharing Information
-						</strong>
-						Sharing information related to medical institution, ambulance service, blood/organ bank and your own experience can be fruitful to others.
-					</figcaption>
-				</figure>
-            </article>
-            <article class="img-item">
-            	<h3 class="hidden">Dolor Sit</h3>
-                <figure>
-                    <a href="img/example-slide-3.jpg" rel="lightbox" title="Some title">
-                        <span class="thumb-screen"></span>
-                        <img src="images/gift.png" id="img6" alt="Some alt text"/>
-                    </a>
-                    <figcaption>
-                        <strong>
-                            By Donating Blood
-                        </strong>
-                        During any medical emergency getting blood of a specific group is not very easy  so by donating blood to needy users can be a great help.
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="img-item">
-            	<h3 class="hidden">Sit Amet</h3>
-                <figure>
-                    <a href="images/basic_life.png" rel="lightbox" title="Some title">
-                        <span class="thumb-screen"></span>
-                        <img src="images/basic_life.png" id="img5" alt="Some alt text"/>
-                    </a>
-                    <figcaption>
-                        <strong>
-                            By Extending Your Help
-                        </strong>
-                        Appropriate response for requestor's queries in need are a kind of help that could make someone happy.
-                    </figcaption>
-                </figure>
-            </article>
-
-			<article class="img-item">
-				<h3 class="hidden">Dolor sit amet</h3>
-				<figure>
-					<a href="images/organ.png" rel="lightbox" title="Some title">
-						<span class="thumb-screen"></span>
-						<img src="images/organ.png" id="img4" alt="Some alt text"/>
-					</a>
-					<figcaption>
-						<strong>
-							By Donating Organ
-						</strong>
-						You could register youself here for donating organ posthumously. You could also connect people for this noble cause.
-					</figcaption>
-				</figure>
-            </article>
-            <br class="clear"/>
-            <br class="clear"/>
-        </section>
 		<section id="four_columns">
 			<h2>
                 Place Request
@@ -390,6 +295,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
      $(window).load(function() {
      $('#loading').hide();
   });
+     document.getElementById('logo').style.cursor="pointer";
 </script>
 
 </html>

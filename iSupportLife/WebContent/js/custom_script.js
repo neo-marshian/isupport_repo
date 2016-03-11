@@ -33,7 +33,7 @@
         	document.getElementById('place_holder').style.display='block';
         	document.getElementById('home').style.display='none';
         	document.getElementById('homeBarContent').style.display='none';
-        	document.getElementById('object_content').height="650px";
+        	document.getElementById('object_content').height="800px";
         	document.getElementById('object_content').data='registration.html';
         	document.getElementById('changeBarTitle').innerHTML='Registration';
         	document.getElementById('slider_section').style.display='none';
@@ -62,9 +62,26 @@
         	document.getElementById('changeBarTitle').innerHTML='Login';
         }
         
+        function showAbout(){
+        	document.getElementById('place_holder').style.display='block';
+        	document.getElementById('home').style.display='none';
+        	document.getElementById('slider_section').style.display='none';
+        	document.getElementById('object_content').data='about.html';
+        	document.getElementById('object_content').height="750px";
+        	document.getElementById('homeBarContent').style.display='none';
+        	document.getElementById('changeBarTitle').innerHTML='About';
+        }
+        
         function getProfile(){
-        	if(document.getElementById('user_name_td').value != ''){
-        		alert('my profile');
+        	var v = document.getElementById('user_name_td').value; 
+        	if(v != '' && v != null && v != undefined){
+            	document.getElementById('place_holder').style.display='block';
+            	document.getElementById('home').style.display='none';
+            	document.getElementById('homeBarContent').style.display='none';
+            	document.getElementById('object_content').height="800px";
+            	document.getElementById('object_content').data='registration.html';
+            	document.getElementById('changeBarTitle').innerHTML='Profile';
+            	document.getElementById('slider_section').style.display='none';
         	}       	
         	
         }
@@ -87,8 +104,8 @@
 					document.getElementById('logout_menu').style.display='none';
 					document.getElementById('user_name_td').innerHTML='Guest';
 					document.getElementById('user_name_td').value='';
-					document.getElementById('user_name_td').style.cursor="hand";
-		 			document.getElementById('user_name_td').style.textDecoration="normal";
+					document.getElementById('user_name_td').style.cursor="default";
+		 			document.getElementById('user_name_td').style.textDecoration="none";
 					//document.getElementById('homeBarContent').style.display='block';
 					alert('You Have Successfully Logged Out!');
 					showHome();
@@ -103,6 +120,12 @@
 		
 		
         function showRequestBloodForm(){
+        	var v = document.getElementById('user_name_td').value;
+        	if(v == '' || v == null || v == undefined){
+        		showLogin();
+        		alert('Please login first to place request!');
+        		return;
+        	}
         	document.getElementById('place_holder').style.display='block';
         	document.getElementById('home').style.display='none';
         	document.getElementById('slider_section').style.display='none';

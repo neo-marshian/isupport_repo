@@ -3,10 +3,11 @@ $(document).ready(function() {
 	  $('#id_checkin').datepicker();  
 	});
 
-function populateData(obj){
-	alert(obj.REQESTOR);
-	document.getElementById('id_first_name').value = obj.REQESTOR.split(' ')[0];
-	document.getElementById('id_last_name').value = obj.REQESTOR.split(' ')[1];
+function populateData(){
+	var obj = top.document.getElementById('place_holder').value;
+	if(obj == null || obj == '' || obj == undefined) return;
+	document.getElementById('id_first_name').value = obj.REQUESTOR.split(' ')[0];
+	document.getElementById('id_last_name').value = obj.REQUESTOR.split(' ')[1];
 }
 
 function requestBlood(formId) {
@@ -53,7 +54,7 @@ function requestBlood(formId) {
 	 		top.document.body.scrollTop = top.document.documentElement.scrollTop = 0;
 	 		top.document.getElementById('loading').style.display='none';
 	 		
-	 		document.getElementById('request_number').innerHTML='<b>Click to see the uploaded file</b>';
+	 		document.getElementById('request_number').innerHTML='<b>Click to see the Request</b>';
 	 		document.getElementById('request_number').value=obj.request_number;
 		}
 	  
@@ -78,12 +79,6 @@ function downloadDocument(){
 }
 
 function showRequest(){
-	top.document.getElementById('loading').style.display='block';
-	
-	document.getElementById('content').style.display='none';
-	document.getElementById('confirm').style.display='block';
-	top.document.body.scrollTop = top.document.documentElement.scrollTop = 0;
-	top.document.getElementById('loading').style.display='none';
     
 	if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -93,26 +88,30 @@ function showRequest(){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function(){
-		alert(xmlhttp.status);
-	 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-	 		var obj = JSON.parse(xmlhttp.responseText);
-	 		if(obj.err_msg != ''){
-	 			document.getElementById("confirm").innerHTML=obj.err_msg;
-	 		} else{
-	 			document.getElementById('place_holder').style.display='block';
-	        	document.getElementById('home').style.display='none';
-	        	document.getElementById('slider_section').style.display='none';
-	        	document.getElementById('object_content').data='request.html';
-	        	document.getElementById('object_content').height="750px";
-	        	document.getElementById('homeBarContent').style.display='none';
-	        	document.getElementById('changeBarTitle').innerHTML='Blood Request Form';	        	
-	 		}
-	 		document.getElementById('content').style.display='none';
-	 		document.getElementById('confirm').style.display='block';
-	 		top.document.body.scrollTop = top.document.documentElement.scrollTop = 0;
-	 		top.document.getElementById('loading').style.display='none';
-		}
+    	try{
+    	 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+    	 		var obj = JSON.parse(xmlhttp.responseText);
+    	 		if(obj.err_msg != ''){    	 			
+    	 			document.getElementById("confirm").innerHTML=obj.err_msg;
+    	 			document.getElementById('confirm').style.display='block';    	 			
+    	 		} else{
+    	 			top.document.getElementById('place_holder').style.display='block';
+    	        	top.document.getElementById('home').style.display='none';
+    	        	top.document.getElementById('slider_section').style.display='none';
+    	         	top.document.getElementById('homeBarContent').style.display='none';
+    	        	top.document.getElementById('changeBarTitle').innerHTML='Blood Request Form';
+    	        	top.document.getElementById('place_holder').value=obj;
+    	        	top.document.getElementById('object_content').height="750px";
+    	        	top.document.getElementById('object_content').data='request.html'
+    	 		}
+    	 		document.getElementById('content').style.display='none';	 		
+    	 		top.document.body.scrollTop = top.document.documentElement.scrollTop = 0;
+    		}
+    	}catch(e){
+    		alert(e);
+    	}
+
 	  
 	 }
 

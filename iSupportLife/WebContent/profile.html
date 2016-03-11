@@ -12,9 +12,9 @@
 <body>
 <div class="container">
 			<header>
-				<h1 id="title">Registration Form</h1>
+				<h1>Registration Form</h1>
             </header>
-      <h2 id="confirm" style="display:none;text-align:center;margin-top:50px">
+      <h2 id="confirm" style="display:none;text-align:center;margin-top:70px">
       Thank you for signing up with us!! Please check email for confirming your account.</h2>
 
       <div  class="form" id="content">
@@ -56,50 +56,18 @@
               </fieldset>
 
             <select class="select-style gender" name="gender">
-            <option value="select">I Am...</option>
+            <option value="select">I am...</option>
             <option value="m">Male</option>
             <option value="f">Female</option>
             <option value="others">Other</option>
             </select><br><br>
-            
-            <select class="select-style gender" name="blood_group">
-            <option value="select">My Blood Group Is...</option>
-            <option value="ap">A+</option>
-            <option value="bp">B+</option>
-            <option value="abp">AB+</option>
-            <option value="op">O+</option>
-            <option value="an">A-</option>
-            <option value="bn">B-</option>
-            <option value="abn">AB-</option>
-            <option value="on">O-</option>
-            </select><br><br>
 
             <p class="contact"><label for="phone">Mobile phone</label></p>
             <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
-           <fieldset>
-                 <label>Country</label>
-                  <label class="month"></label>
-                  <select class="select-style" name="Country">
-	                  <option value="">Country</option>
-	                  <option  value="india">India</option>                  
-                 </select>
-                <label>City</label>
-                  <label class="month"></label>
-                  <select class="select-style" name="City">
-	                  <option value="">City</option>
-	                  <option  value="chennai">Chennai</option>                  
-	                  <option  value="kolkata">Kolkata</option>
-	                  <option  value="newdelhi">New Delhi</option>
-	                  <option  value="mumbai">Mumbai</option>
-                 </select>
-                <label>PIN <input class="birthyear" maxlength="10" name="PIN" placeholder="PIN" required=""></label>
-              </fieldset>
-              <br>
-            <input class="buttom" onclick="AJAXPost('contactform', false);" name="submit" id="submit" tabindex="5" value="Sign me up!" type="button">
-            <input class="buttom" onclick="AJAXPost('contactform', true);" name="update" id="update" tabindex="5" value="Update" type="button">
+            <input class="buttom" onclick="AJAXPost('contactform');" name="submit" id="submit" tabindex="5" value="Sign me up!" type="button">
    </form>
 </div>
 </div>
-<script>init()</script>
+
 </body>
 </html>

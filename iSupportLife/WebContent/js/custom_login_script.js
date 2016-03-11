@@ -3,7 +3,7 @@
         	top.document.getElementById('place_holder').style.display='block';
         	top.document.getElementById('home').style.display='none';
         	top.document.getElementById('homeBarContent').style.display='none';
-        	top.document.getElementById('object_content').height="650px";
+        	top.document.getElementById('object_content').height="800px";
         	top.document.getElementById('object_content').data='registration.html';
         	top.document.getElementById('changeBarTitle').innerHTML='Registration';
 		}
@@ -27,7 +27,7 @@
 			 			document.getElementById("res").innerHTML=obj.err_msg;
 			 		} else{			 			
 			 			top.document.getElementById('user_name_td').innerHTML=obj.name;
-			 			top.document.getElementById('user_name_td').value=obj.user_id;
+			 			top.document.getElementById('user_name_td').value=obj;
 			 			top.document.getElementById('user_name_td').style.cursor="pointer";
 			 			top.document.getElementById('user_name_td').style.textDecoration="underline";
 			 			showHomeFromLogin();

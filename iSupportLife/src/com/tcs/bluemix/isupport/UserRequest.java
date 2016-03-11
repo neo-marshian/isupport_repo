@@ -89,7 +89,7 @@ public class UserRequest extends HttpServlet {
 		System.out.println("File size == "+file.getInputStream().available());
 		int age = new Integer(request.getParameter("age"));
 		String req_num = UUID.randomUUID().toString();			
-		conn = getConnection();				
+		conn = Util.getConnection();				
 		sqlStatement = "INSERT INTO " + tableName + " VALUES (?,?,?,?,?,?,?,?)";
 		//System.out.println(sqlStatement);
 		pstmt=conn.prepareStatement(sqlStatement);			
@@ -122,17 +122,18 @@ public class UserRequest extends HttpServlet {
 		
 		response.setContentType("application/json");
 		response.setStatus(200);
-		conn = getConnection();	
+		conn = Util.getConnection();	
 		stmt =  conn.createStatement();			
 		String req_num = request.getParameter("request_number");
 		sqlStatement = "SELECT * FROM " + tableName + " WHERE REQ_NUMBER = '"+req_num+"'";
 		ResultSet rs = stmt.executeQuery(sqlStatement);
 		JSONObject obj =  new JSONObject();
+		obj.put("err_msg","");
 		// Process the result set
 		if (rs.next()) {
 			obj.put("REQ_NUM",req_num);
-			obj.put("REQESTOR", rs.getString(2));
-			obj.put("REQ_DATE", rs.getDate(3));
+			obj.put("REQUESTOR", rs.getString(2));
+			obj.put("REQ_DATE", rs.getDate(3).toString());
 			obj.put("REQ_DETAILS", rs.getString(5));
 			obj.put("FILE_NAME", rs.getString(7));
 		}
@@ -153,7 +154,7 @@ public class UserRequest extends HttpServlet {
 		Connection conn = null;
 
 		try {
-			conn = getConnection();	
+			conn = Util.getConnection();	
 			stmt =  conn.createStatement();			
 			String req_num = request.getParameter("request_number");
 			sqlStatement = "SELECT FILE, FILE_TYPE, FILE_NAME FROM " + tableName + " WHERE REQ_NUMBER = '"+req_num+"'";
@@ -191,7 +192,7 @@ public class UserRequest extends HttpServlet {
 			throws ServletException, IOException {
 		Connection conn = null;
 		try {
-			conn = getConnection();
+			conn = Util.getConnection();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -234,42 +235,4 @@ public class UserRequest extends HttpServlet {
 
 	}
 	
-	private static Connection getConnection() throws Exception {
-		Map<String, String> env = System.getenv();
-		System.out.println("<----------------------inside getConnection--------------->");
-		if (env.containsKey("VCAP_SERVICES")) {
-			// we are running on cloud foundry, let's grab the service details from vcap_services
-			JSONParser parser = new JSONParser();
-			JSONObject vcap = (JSONObject) parser.parse(env.get("VCAP_SERVICES"));
-			JSONObject service = null;
-			
-			// We don't know exactly what the service is called, but it will contain "sql"
-			for (Object key : vcap.keySet()) {
-				String keyStr = (String) key;
-				if (keyStr.toLowerCase().contains("sql")) {
-					service = (JSONObject) ((JSONArray) vcap.get(keyStr)).get(0);
-					break;
-				}
-			}
-
-			if (service != null) {
-				JSONObject creds = (JSONObject) service.get("credentials");
-				/*String name = (String) creds.get("name");
-				String host = (String) creds.get("host");
-				Long port = (Long) creds.get("port");*/
-				String user = (String) creds.get("username");
-				String password = (String) creds.get("password");
-				
-				String url = (String) creds.get("jdbcurl");
-				System.out.println(url);
-				Class.forName("com.ibm.db2.jcc.DB2Driver");
-				return DriverManager.getConnection(url, user, password);
-			}
-		}
-		
-		throw new Exception("No SQL service URL found. Make sure you have bound the correct services to your app.");
-	}
-	
-	
-
 }

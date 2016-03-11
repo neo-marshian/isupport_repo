@@ -1,8 +1,21 @@
-function AJAXPost(formId) {
+function init(){
+	var v = top.document.getElementById('user_name_td').value; 
+	if(v != '' && v != null && v != undefined){
+		document.getElementById('submit').style.display='none';
+		document.getElementById('title').innerHTML='Profile';
+		alert(v.name);
+	} else{
+		document.getElementById('update').style.display='none';		
+	}
+	
+}
+
+function AJAXPost(formId, isUpdate) {
 	top.document.getElementById('loading').style.display='block';
     var elem   = document.getElementById(formId).elements;
     //var url    = document.getElementById(formId).action;        
     var params = "action=signup&";
+    if(isUpdate) params = "action=profile_update&";
     var value;
 
     for (var i = 0; i < elem.length; i++) {

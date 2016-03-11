@@ -13,4 +13,5 @@
     <servlet-name>MasterServlet</servlet-name>
     <url-pattern>/master</url-pattern>
   </servlet-mapping>  
+  
 </web-app>
